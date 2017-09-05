@@ -1,9 +1,19 @@
-# TRP_529 Gifting Center: NightwatchJS Automation Framework
+# NightwatchJS Automation Framework
 ## Installation
+
+Install Redux-Bank and Deploy App
 ```sh
-$ git clone [TRP-Gifting529 repo link]
-$ cd TRP-Gifting529/e2e
+$ git clone repo link]
+$ cd nightwatch-boilerplate/redux-bank
 $ npm install
+$ npm start
+```
+
+Install Nightwatch framework
+```sh
+$ cd nightwatch-boilerplate/e2e
+$ npm install
+$ npm run nightwatch --tag UI001
 ```
 
 ## Run all Tests
@@ -15,6 +25,7 @@ npm run nightwatch
 npm run nightwatch -- --tag US11199 --e ie
 ```
 Please refer to __./nightwatch.conf.js__ test_settings for list of available test environments.
+All tests are inside ./src folder
 #### Run tests on different brands and urls
 1. Running a test on national branding on localhost (default)
 ```sh
@@ -22,7 +33,7 @@ AH_BRAND_NAME=national-529 npm run nightwatch -- --tag US11199
 ```
 2. Running a test on custom environment path
 ```sh
-ACCOUNT_HOLDER_APP=http://dev.gifting.allegisgroup.com GIFTER_APP=http://dev.gifting.allegisgroup.com:8080 npm run nightwatch -- --tag smoke --e phantomjs
+REACT_BANK_APP=http://dev.reactapp.allegisgroup.com npm run nightwatch -- --tag smoke --e phantomjs
 ```
 Please refer to __./tests/globals.conf.js__ for default environment paths
 

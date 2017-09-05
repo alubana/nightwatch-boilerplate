@@ -1,0 +1,69 @@
+######################
+# Project Specific
+######################
+*/build
+*/dist
+*/**/coverage
+ada-e2e/reports
+
+######################
+# Node
+######################
+*/**/node_modules
+/node_modules
+
+######################
+# SASS
+######################
+.sass-cache/**
+
+######################
+# Intellij
+######################
+.idea/**
+*/.idea/**
+*.iml
+*.iws
+*.ipr
+*.ids
+
+
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+######################
+# Logs
+######################
+*.log
+
+######################
+# migrated change
+######################
+test-results
+.project
+*.swp
+######################
+# e2e Nightwatch
+######################
+/e2e/tests/reports
+tests_output
+screenshots

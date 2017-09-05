@@ -26,16 +26,39 @@ npm run nightwatch -- --tag US11199 --e ie
 ```
 Please refer to __./nightwatch.conf.js__ test_settings for list of available test environments.
 All tests are inside ./src folder
-#### Run tests on different brands and urls
-1. Running a test on national branding on localhost (default)
-```sh
-AH_BRAND_NAME=national-529 npm run nightwatch -- --tag US11199
-```
+
 2. Running a test on custom environment path
 ```sh
 REACT_BANK_APP=http://dev.reactapp.allegisgroup.com npm run nightwatch -- --tag smoke --e phantomjs
 ```
 Please refer to __./tests/globals.conf.js__ for default environment paths
+
+## Running tests inside Docker containers
+Prequisite: install docker and docker-compose
+
+Start Selenium Hub with two nodes of FF and Chrome.
+```sh
+docker-compose up
+```
+Running nightwatch tests as normal. They will execute inside container.
+
+Scale to multiple instances of browsers.
+```sh
+docker-compose scale chrome=10
+```
+
+Please not you can install VNC viewer to See inside the container.
+Use 127.0.0.1:PORT
+You can find the vnc port on host machine by
+```sh
+docker ps -a
+```
+Look for the node image and the mapped port to 5900.
+
+Remember to close all docker instances
+```sh
+docker-compose down
+```
 
 ## Nightwatch Configuration
 All the global nightwatch configurations are stored in file *./nightwatch.conf.js*. And for test suite specific configuration please refer to *./tests/nightwatch.conf.js``*

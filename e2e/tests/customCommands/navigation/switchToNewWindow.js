@@ -7,8 +7,8 @@
 exports.command = function (index) {
     const client = this;
 
-    client.window_handles(function (result) {
-        var handle = result.value[index];
+    client.windowHandles(function (result) {
+        const handle = result.value[index];
         client.switchWindow(handle);
     });
     client.waitForJavascript();

@@ -19,7 +19,7 @@ module.exports = {
              */
             el: function (elementName, child) {
                 const element = this.elements[elementName.slice(1)];
-                return util.format(element.selector, child)
+                return util.format(element.selector, child);
             },
             verifyTableHeaders: function () {
                 const _self = this;
@@ -31,7 +31,7 @@ module.exports = {
                 ]
                     .forEach(function (result, index) {
                         //Use of el method. Can only have a single index field %s
-                        _self.expect.element(_self.el('@tableHeaders', index + 1)).text.to.be.equal(result)
+                        _self.expect.element(_self.el('@tableHeaders', index + 1)).text.to.be.equal(result);
                     });
             },
             verifyAccountInfo: function (rowIndex = 1, accountNumber, accountType, balance) {
@@ -44,7 +44,7 @@ module.exports = {
                 ].forEach(function (result, index) {
                     //for selector with multiple %s, use directly instead of el
                     _self.expect.element(`tr:nth-child(${rowIndex}) td:nth-child(${index + 1})`).text.to.be.equal(result);
-                })
+                });
             },
             /*
             A function, which performs an action on an element, must wait for the action to be completed.
@@ -63,5 +63,8 @@ module.exports = {
                 transactionsPage.waitForElementVisible('@withdrawButton');
             }
         }
-    ]
+    ],
+    props: {
+        title: 'Accounts'
+    }
 };

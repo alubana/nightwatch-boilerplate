@@ -6,8 +6,6 @@
   "scripts": {
     "install-yarn": "yarn",
     "nightwatch": "nightwatch",
-    "nightwatchHttp": "ACCOUNT_HOLDER_APP=http://localhost:3001 GIFTER_APP=http://localhost:3002 npm run nightwatch",
-    "start": "./script.sh",
     "lint": "eslint ./tests --max-warnings 0"
   },
   "author": "alubana",
@@ -36,5 +34,10 @@
     "babel-preset-es2015": "^6.24.1",
     "chai": "^3.5.0",
     "eslint": "^3.13.1"
+  },
+  "eslintConfig": {
+  "globals": {
+    "module": true
   }
+}
 }

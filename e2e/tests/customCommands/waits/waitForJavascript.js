@@ -9,10 +9,10 @@ exports.command = function () {
 //Wait for document to be ready for ~5000ms
     const client = this;
     client.pause(1000);
-    for (var i = 5; i >= 1; i -= 1) {
+    for (let i = 5; i >= 1; i -= 1) {
         const isJsReady = client
-            .execute("return document.readyState;", function (result) {
-                return result.value === "complete";
+            .execute('return document.readyState;', function (result) {
+                return result.value === 'complete';
             });
 
         // const isJqueryReady = client
@@ -26,8 +26,8 @@ exports.command = function () {
             break;
         }
 
-        client.logger("Document not ready. Waiting for another " + i + " seconds")
-            .pause(1000)
+        client.logger(`Document not ready. Waiting for another ${i} seconds`)
+            .pause(1000);
     }
     return this; //for chaining on client/browser object
 };

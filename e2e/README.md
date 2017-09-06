@@ -1,4 +1,5 @@
 # NightwatchJS Automation Framework
+Author: alubana@teksystems.com
 ## Installation
 
 Install Redux-Bank and Deploy App

@@ -1,7 +1,7 @@
 exports.command = function (url, acceptAlert, appID) {
     const _self = this;
 
-    _self.logger("Loading Page: " + url);
+    _self.logger(`Loading Page: ${url}`);
     _self.url(url);
 
     if (acceptAlert) {

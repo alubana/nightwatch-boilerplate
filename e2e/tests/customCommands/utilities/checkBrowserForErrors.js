@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 exports.command = function () {
     const _self = this;
 
@@ -10,10 +11,9 @@ exports.command = function () {
                 _self.logger('[' + log.level + '] ' + log.timestamp + ' : ' + log.message);
 
                 //assert on errors only
-                _self.verify.ok(log.level !== 'ERROR', 'Checking for Javascript error/s')
+                _self.verify.ok(log.level !== 'ERROR', 'Checking for Javascript error/s');
             });
 
-        } else {
         }
     });
 

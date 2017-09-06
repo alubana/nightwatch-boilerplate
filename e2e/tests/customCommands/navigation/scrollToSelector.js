@@ -1,8 +1,10 @@
 exports.command = function (selector) {
-    const browser = this;
+    const _self = this;
 
-    browser.getLocationInView(selector, function (result) {
-        browser.logger('scroll to ' + selector);
-        browser.execute('scrollTo(' + result.value.x + ',' + (result.value.y - 65) + ')'); // 65 Offset
+    this.waitForElementPresent(selector);
+
+    _self.getLocationInView(selector, function (result) {
+        _self.logger(`scroll to ${selector}`);
+        _self.execute(`scrollTo(${result.value.x} , ${result.value.y - 65})`); // 65 Offset
     });
 };

@@ -1,7 +1,7 @@
-exports.command = function (selector, scroll) {
+exports.command = function (selector = 'body', scroll = 5000) {
     const _self = this;
-    _self.waitForElementVisible(selector, 5000);
-    _self.execute("document.querySelector('" + selector + "').scrollTop = " + scroll);
+    _self.waitForElementPresent(selector);
+    _self.execute(`document.querySelector('${selector}').scrollTop = ${scroll}`);
     _self.waitForJavascript();
 
     return this;

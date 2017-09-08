@@ -1,10 +1,11 @@
 # NightwatchJS Automation Framework
-Author: alubana@teksystems.com
+Author: alubana@teksystems.com <br>
+Assistant: jxu@teksystems.com
 ## Installation
 
 Install Redux-Bank and Deploy App
 ```sh
-$ git clone repo link]
+$ git clone [repo link]
 $ cd nightwatch-boilerplate/redux-bank
 $ npm install
 $ npm start
@@ -14,7 +15,6 @@ Install Nightwatch framework
 ```sh
 $ cd nightwatch-boilerplate/e2e
 $ npm install
-$ npm run nightwatch --tag UI001
 ```
 
 ## Run all Tests
@@ -23,7 +23,7 @@ npm run nightwatch
 ```
 #### Run tests via @tags and select environment
 ```sh
-npm run nightwatch -- --tag US11199 --e ie
+npm run nightwatch -- --tag US001 --e ie
 ```
 Please refer to __./nightwatch.conf.js__ test_settings for list of available test environments.
 All tests are inside ./src folder
@@ -48,8 +48,8 @@ Scale to multiple instances of browsers.
 docker-compose scale chrome=10
 ```
 
-Please not you can install VNC viewer to See inside the container.
-Use 127.0.0.1:PORT
+Please note, you can install VNC viewer to see inside the container.<br>
+Use 127.0.0.1:*PORT*
 You can find the vnc port on host machine by
 ```sh
 docker ps -a
@@ -62,9 +62,9 @@ docker-compose down
 ```
 
 ## Nightwatch Configuration
-All the global nightwatch configurations are stored in file *./nightwatch.conf.js*. And for test suite specific configuration please refer to *./tests/nightwatch.conf.js``*
+All the global nightwatch configurations are stored in file *./nightwatch.conf.js*. And for test suite specific configuration please refer to *./tests/nightwatch.conf.js*
 
-#### Adding new browser drivers such as SafariDriver etc
+#### Adding new browser drivers such as SafariDriver, etc
 Add path to driver binary in ``cli_args``. Then add, the browser configurations in ```test_settings```
 
 ## [Page Object Model](https://github.com/nightwatchjs/nightwatch/wiki/Page-Object-API)
@@ -90,7 +90,7 @@ module.exports = {
             strategy: 'xpath'
         }
     },
-    labels: {
+    props: {
     //declare static text here or use callbacks for dynamic texts
         author_name: 'John Doe',
         some_title: "I'm a title",
@@ -110,8 +110,7 @@ module.exports = {
 
 ## Custom Commands
 Custom Commands are utility methods which can be globally called in test cases and inside pom methods. Please refer to *./tests/customCommands*
-Please note as the filename is associated with the method, therefore __you can not create a new command with same  
-(file)name (even in a separate folder).__
+Please note as the filename is associated with the method, therefore __you cannot create a new command with same (file)name (even in a separate folder).__
 
 To create custom commands that can be chained to client/browser object, you need to return __this__ object.
 Example: To create a command 'zoomIn()'
@@ -126,9 +125,9 @@ exports.command = function () {
 
 ### Loading Pages
 Load Page Strategy has been split among three methods: 
-1.  loadAppPage.js - Loads any application page. It waits for element #app to be visible before set time. Also, Checks and logs browser javascript errors.
+1. loadAppPage.js - Loads any application page. It waits for element #app to be visible before set time. Also, Checks and logs browser javascript errors.
 2. loadAhPage.js - Loads only Account Holder App pages. Accepts as argument the page and acceptAlert which closes any active javascript alerts and loads page.
-3.  loadGifterPage.js - Loads only Gifter App Pages. Otherwise similar to loadAhPage
+3. loadGifterPage.js - Loads only Gifter App Pages. Otherwise similar to loadAhPage
 
 Use cases
 1. A typical usage in a page model for example Dashboard:
@@ -137,7 +136,7 @@ loadPage: function (acceptAlert) {
                 this.loadAhPage(this.api.globals.pages.dashboard, acceptAlert);
             }
 ````
-2. A typical usage directly in a test case (not recommended)
+2.. A typical usage directly in a test case (not recommended)
 ```js
  //navigate to Email Page
  client.loadGifterPage(client.globals.pages.gifter.email_123);

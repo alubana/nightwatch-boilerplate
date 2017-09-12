@@ -1,15 +1,15 @@
 module.exports = {
-    '@tags': ['UI002', 'bank'],
+    '@tags': ['UI003', 'deposit'],
     disabled: false,
 
     before: function (client) {
         //Before Hook must contain all the logic to load the required page and setup pre-conditions
         client
-            .logger('Testing react-bank landing page UI')
+            .logger('Deposit money happy path test')
             .loadBankPage();
     },
 
-    'TC1: Click on first account': function (client) {
+    "Step 1: Get the first account's balance": function (client) {
         const landingPage = client.page.BankLanding();
         const transactionsPage = client.page.Transactions();
 
@@ -18,7 +18,17 @@ module.exports = {
         transactionsPage.expect.element('@title').text.to.be.equal(transactionsPage.props.title);
 
     },
-    'TC2: Click header link': function (client) {
+
+    "Step 2: Click on first account": function (client) {
+        const landingPage = client.page.BankLanding();
+        const transactionsPage = client.page.Transactions();
+
+        landingPage.clickAccountNumberByIndex();
+
+        transactionsPage.expect.element('@title').text.to.be.equal(transactionsPage.props.title);
+
+    },
+    "Step 3: Click header link": function (client) {
         const landingPage = client.page.BankLanding();
         const headerPage = client.page.BankHeader();
 

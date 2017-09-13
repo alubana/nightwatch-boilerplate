@@ -12,8 +12,8 @@ module.exports = {
             selector: 'tr:nth-child(%s) td:nth-child(1) a'
         },
         balance: {
-            selector: "//tr[td/a[text()='(%s)']]//td[3]",
-            strategy: 'xpath'
+            locateStrategy: 'xpath',
+            selector: "//tr[td/a[text()='%s']]//td[3]"
         }
     },
     commands: [
@@ -69,7 +69,7 @@ module.exports = {
 
             getAccountBalance: function (accountNr) {
                 const _self = this;
-                _self.el('@balance', accountNr).getText();
+                return _self.getText('xpath',`${util.format(_self.elements['@balance'.slice(1)].selector, accountNr)}`, function(result){return result});
             }
         }
     ],

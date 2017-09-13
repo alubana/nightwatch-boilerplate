@@ -10,9 +10,9 @@ app.use(express.static(static_path))
   .use(express.static(path.join(__dirname, 'semantic/dist')))
   .get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
-  }).listen(process.env.PORT || 8080, function (err) {
+  }).listen(process.env.PORT || 8088, function (err) {
     if (err) { console.error(err); }
-    console.log('Listening at localhost:8080');
+    console.log('Listening at localhost:8088');
   });
 
 if (isDevelopment) {

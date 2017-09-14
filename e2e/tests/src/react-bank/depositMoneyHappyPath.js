@@ -12,29 +12,31 @@ module.exports = {
     "Step 1: Get the first account's balance": function (client) {
         const landingPage = client.page.BankLanding();
         const transactionsPage = client.page.Transactions();
-        console.log(`get account balance: ${landingPage.getAccountBalance('121212')}`);
-        // landingPage.clickAccountNumberByIndex();
+        landingPage.getAccountBalance('121212').then((value)=>{
+            console.log(`the value: ${value}`)
+        });
+    },
 
-        // transactionsPage.expect.element('@title').text.to.be.equal(transactionsPage.props.title);
+    "Step 2: Click on first account": function (client) {
+        const landingPage = client.page.BankLanding();
+        landingPage.clickAccountNumberByIndex();
+    },
 
+    "Step 3: Set deposit value": function (client) {
+        const transactionsPage = client.page.Transactions();
+
+        transactionsPage.clickDepositButton();
+        transactionsPage.setValue('@amountInput', ["100", client.Keys.ENTER]);
+        // client.perform(function(done){
+        //     console.log(`Old currentAcctBal is: ${this.globals.currentAccountBal}`);
+        //     done();
+        // })
     }
-
-    // "Step 2: Click on first account": function (client) {
-    //     const landingPage = client.page.BankLanding();
-    //     const transactionsPage = client.page.Transactions();
-    //
-    //     landingPage.clickAccountNumberByIndex();
-    //
-    //     transactionsPage.expect.element('@title').text.to.be.equal(transactionsPage.props.title);
-    //
-    // },
-    // "Step 3: Click header link": function (client) {
-    //     const landingPage = client.page.BankLanding();
-    //     const headerPage = client.page.BankHeader();
-    //
-    //     headerPage.scrollFromTop();
-    //
-    //     headerPage.clickReduxBank();
-    //     landingPage.expect.element('@title').text.to.be.equal(landingPage.props.title);
-    // }
 };
+
+
+
+
+
+
+

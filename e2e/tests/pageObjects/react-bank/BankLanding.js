@@ -10,6 +10,10 @@ module.exports = {
         },
         accountNumberLinkByIndex: {
             selector: 'tr:nth-child(%s) td:nth-child(1) a'
+        },
+        balance: {
+            locateStrategy: 'xpath',
+            selector: "//tr[td/a[text()='%s']]//td[3]"
         }
     },
     commands: [
@@ -61,6 +65,11 @@ module.exports = {
                 //Wait for next page load by waiting for a unique element on the next page.
                 //withdraw button is declared in Transcations.js pom, therefore needs it's own page object to be called.
                 transactionsPage.waitForElementVisible('@withdrawButton');
+            },
+
+            getAccountBalance: function (accountNr) {
+                const _self = this;
+                return _self.getText('xpath',`${util.format(_self.elements['@balance'.slice(1)].selector, accountNr)}`, function(result){return result});
             }
         }
     ],

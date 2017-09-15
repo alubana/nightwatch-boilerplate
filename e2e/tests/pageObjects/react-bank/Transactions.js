@@ -13,10 +13,14 @@ module.exports = {
             selector: 'table th:nth-of-type(%s)'
         },
         modalHeader: {
-            selector: '\'div.header\''
+            selector: 'div.header'
         },
         amountInput: {
             selector: 'input[name=amount]'
+        },
+        approveButton: {
+            locateStrategy: 'xpath',
+            selector: '//span[text()="Approve"]'
         }
     },
     commands: [
@@ -37,7 +41,7 @@ module.exports = {
             clickDepositButton: function (){
                 const _self = this;
                 _self.click('@depositButton');
-
+                _self.waitForElementVisible('@modalHeader');
             }
         }
     ],

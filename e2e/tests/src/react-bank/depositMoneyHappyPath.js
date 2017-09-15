@@ -2,35 +2,51 @@ module.exports = {
     '@tags': ['UI003', 'deposit'],
     disabled: false,
 
-    before: function (client) {
-        //Before Hook must contain all the logic to load the required page and setup pre-conditions
+    before: (client) => {
         client
             .logger('Deposit money happy path test')
             .loadBankPage();
     },
 
-    "Step 1: Get the first account's balance": function (client) {
+    "Step 1: Get the first account's balance": (client) => {
         const landingPage = client.page.BankLanding();
-        const transactionsPage = client.page.Transactions();
-        landingPage.getAccountBalance('121212').then((value)=>{
-            console.log(`the value: ${value}`)
-        });
+
+        client.perform(function (done) {
+            landingPage.getAccountBalance('121212').then((value) => {
+                client.globals.acctBal = value;
+            });
+            done();
+        })
     },
 
-    "Step 2: Click on first account": function (client) {
+    "Step 2: Click on first account": (client) => {
         const landingPage = client.page.BankLanding();
         landingPage.clickAccountNumberByIndex();
     },
 
-    "Step 3: Set deposit value": function (client) {
+    "Step 3: Set deposit value": (client) => {
         const transactionsPage = client.page.Transactions();
-
         transactionsPage.clickDepositButton();
-        transactionsPage.setValue('@amountInput', ["100", client.Keys.ENTER]);
-        // client.perform(function(done){
-        //     console.log(`Old currentAcctBal is: ${this.globals.currentAccountBal}`);
-        //     done();
-        // })
+        transactionsPage.setValue('@amountInput', 100);
+        transactionsPage.click('@approveButton');
+    },
+
+    "Step 4: Click header link": (client) => {
+        const landingPage = client.page.BankLanding();
+        const headerPage = client.page.BankHeader();
+        headerPage.scrollFromTop();
+        headerPage.clickReduxBank();
+        landingPage.expect.element('@title').text.to.be.equal(landingPage.props.title);
+    },
+
+    "Step 5: Verify the changed account's balance": (client) => {
+        const landingPage = client.page.BankLanding();
+        client.perform(function (done) {
+            landingPage.getAccountBalance('121212').then((value) => {
+                client.expect(value).to.be.equal("$" + (parseInt(client.globals.acctBal.substring(1)) + 100));
+            });
+            done();
+        }).end();
     }
 };
 

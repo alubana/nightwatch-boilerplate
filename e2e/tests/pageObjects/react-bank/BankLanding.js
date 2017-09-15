@@ -71,13 +71,9 @@ module.exports = {
                 const _self = this;
                 return new Promise(function(resolve){
                     _self.getText('xpath',`${util.format(_self.elements['@balance'.slice(1)].selector, accountNr)}`, function(result){
-                        resolve(result);
+                        resolve(result.value);
                     })
                 })
-                    // _self.getText('xpath',`${util.format(_self.elements['@balance'.slice(1)].selector, accountNr)}`, function(result){
-                    //     this.globals.currentAccountBal = result;
-                    // })
-
             }
         }
     ],

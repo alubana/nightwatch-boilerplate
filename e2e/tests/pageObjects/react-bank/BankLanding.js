@@ -69,7 +69,15 @@ module.exports = {
 
             getAccountBalance: function (accountNr) {
                 const _self = this;
-                return _self.getText('xpath',`${util.format(_self.elements['@balance'.slice(1)].selector, accountNr)}`, function(result){return result});
+                return new Promise(function(resolve){
+                    _self.getText('xpath',`${util.format(_self.elements['@balance'.slice(1)].selector, accountNr)}`, function(result){
+                        resolve(result);
+                    })
+                })
+                    // _self.getText('xpath',`${util.format(_self.elements['@balance'.slice(1)].selector, accountNr)}`, function(result){
+                    //     this.globals.currentAccountBal = result;
+                    // })
+
             }
         }
     ],

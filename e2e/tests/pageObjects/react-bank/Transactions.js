@@ -12,6 +12,12 @@ module.exports = {
         tableHeaders: {
             selector: 'table th:nth-of-type(%s)'
         },
+        modalHeader: {
+            selector: '\'div.header\''
+        },
+        amountInput: {
+            selector: 'input[name=amount]'
+        }
     },
     commands: [
         {
@@ -26,6 +32,12 @@ module.exports = {
                     //for selector with multiple %s, use directly instead of el
                     _self.expect.element(`tr:nth-child(${rowIndex}) td:nth-child(${index + 1})`).text.to.be.equal(result);
                 });
+            },
+
+            clickDepositButton: function (){
+                const _self = this;
+                _self.click('@depositButton');
+
             }
         }
     ],

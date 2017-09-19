@@ -19,8 +19,7 @@ module.exports = {
             selector: 'input[name=amount]'
         },
         approveButton: {
-            locateStrategy: 'xpath',
-            selector: '//span[text()="Approve"]'
+            selector: '.positive'
         }
     },
     commands: [

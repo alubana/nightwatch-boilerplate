@@ -96,11 +96,9 @@ const nightwatch_config = {
             silent: true,
             desiredCapabilities: {
                 browserName: 'Chrome',
-                appiumVersion: '1.6.4',
+                appiumVersion: '1.7.0',
                 platformName: 'android',
-                platformVersion: '6.0',
                 deviceName: 'Android Emulator',
-                avd: 'Samsung_S7_Edge_API_23',
                 avdArgs: '-dns-server 8.8.8.8',
             }
         },

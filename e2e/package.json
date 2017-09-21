@@ -36,8 +36,8 @@
     "eslint": "^3.13.1"
   },
   "eslintConfig": {
-  "globals": {
-    "module": true
+    "globals": {
+      "module": true
+    }
   }
-}
 }

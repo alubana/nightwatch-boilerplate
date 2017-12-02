@@ -10,7 +10,7 @@
     "test:watch": "npm test -- --watch",
     "container:build": "docker build -t react-docker .",
     "container:start": "docker run --name react-docker -p 80:8088 react-docker",
-    "container:stop": "docker stop react-docker && docker rm react-docker",
+    "container:stop": "docker stop react-docker && docker rm react-docker"
   },
   "dependencies": {
     "axios": "^0.16.2",

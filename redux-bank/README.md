@@ -1,4 +1,4 @@
-# Note: FORKED version of (redux-bank app)[https://github.com/wdhorton/redux-bank]
+# Note: FORKED version of [redux-bank app](https://github.com/wdhorton/redux-bank)
 
 This app has been modified to run a mocking service to perform various CRUD on Accounts and Transactions.
 Please examine ./mock-server/services to verify the available services.

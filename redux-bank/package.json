@@ -5,11 +5,21 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "postinstall": "webpack --config ./webpack.production.config.js --progress --colors",
+    "build": "webpack --config ./webpack.production.config.js --progress --colors",
     "test": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "container:build": "docker build -t react-docker .",
+    "container:start": "docker run --name react-docker -p 80:8088 react-docker",
+    "container:stop": "docker stop react-docker && docker rm react-docker",
   },
   "dependencies": {
+    "axios": "^0.16.2",
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "express": "^4.13.3",
     "history": "^1.13.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
@@ -18,14 +28,9 @@
     "redux": "^3.0.0",
     "redux-form": "^4.0.5",
     "redux-simple-router": "^1.0.1",
-    "semantic-ui": "^2.1.6",
-    "webpack": "^1.9.11",
-    "express": "^4.13.3",
-    "babel-core": "^6.3.17",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babel-preset-stage-0": "^6.3.13"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-css": "^2.1.6",
+    "webpack": "^1.9.11"
   },
   "devDependencies": {
     "expect": "^1.13.4",

@@ -1,6 +1,6 @@
 # NightwatchJS Automation Framework
-Author: alubana@teksystems.com <br>
-Assistant: jxu@teksystems.com
+Author: alubana@teksystems.com | jxu@teksystems.com <br>
+
 ## Installation
 
 Install Redux-Bank and Deploy App
@@ -30,7 +30,7 @@ All tests are inside ./src folder
 
 2. Running a test on custom environment path
 ```sh
-REACT_BANK_APP=http://dev.reactapp.allegisgroup.com npm run nightwatch -- --tag smoke --e phantomjs
+REACT_BANK_APP=http://dev.reactapp.example.com npm run nightwatch -- --tag smoke --e phantomjs
 ```
 Please refer to __./tests/globals.conf.js__ for default environment paths
 

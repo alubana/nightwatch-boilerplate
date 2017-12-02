@@ -3,7 +3,8 @@ import React from 'react';
 export default (props) => {
   const { type, date, amount } = props.transaction;
 
-  const dateString = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+  var dt = new Date(date);
+  const dateString = (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
   var prefix = "$";
   var style;
 

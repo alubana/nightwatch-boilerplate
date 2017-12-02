@@ -1,11 +1,12 @@
 import React from 'react';
 import Buttons from './Buttons';
-import TransactionTable from './TransactionTable';
+import TransactionTable from '../../containers/TransactionTableContainer';
 import TransactionModal from './TransactionModal';
 
 export default (props) => {
   const { actions, params, transactionModal } = props;
   var modal;
+
 
   if (transactionModal.length > 0) {
     modal = (
@@ -37,7 +38,6 @@ export default (props) => {
         <div className="row">
           <div className="center aligned starter column">
             <TransactionTable
-              transactions={props.transactions}
               id={props.params.id} />
           </div>
         </div>

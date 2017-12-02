@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import AccountListItem from './AccountListItem';
 
 export default class AccountList extends Component {
+
+  constructor(props) {
+    super(props);
+
+    props.actions.fetchAccounts();
+    props.actions.fetchTransactions();
+
+  }
   calculateAmount(account) {
     const { transactions } = this.props;
 

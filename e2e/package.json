@@ -1,7 +1,7 @@
 {
   "name": "e2e",
   "version": "1.0.0",
-  "description": "NightwatchJS Automation framework for TRP_529 Gifting Center project.",
+  "description": "NightwatchJS Automation framework",
   "main": "index.js",
   "scripts": {
     "install-yarn": "yarn",
@@ -36,8 +36,8 @@
     "eslint": "^3.13.1"
   },
   "eslintConfig": {
-  "globals": {
-    "module": true
+    "globals": {
+      "module": true
+    }
   }
-}
 }

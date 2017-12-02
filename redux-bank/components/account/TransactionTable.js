@@ -1,27 +1,44 @@
-import React from 'react';
+import React,{Component } from 'react';
 import Transaction from './Transaction';
 
-export default (props) => {
-  var transactions = props.transactions || [];
+export default class TransactionTable extends Component {
 
-  transactions = transactions.filter((transaction) => {
-    return transaction.accountId === Number(props.id);
-  });
+   transactions;
 
-  return(
-    <table className="ui celled table">
-      <thead>
+  constructor(props) {
+    super(props);
+    this.transactions = [];
+    this.props.actions.fetchTransactions();
+  }
+
+  componentWillMount() {
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.transactions.length) {
+      this.transactions = nextProps.transactions.filter((transaction) => {
+        return transaction.accountId === Number(this.props.id);
+      });
+    }
+  }
+
+  render () {
+    return (
+      <table className="ui celled table">
+        <thead>
         <tr>
           <th>Type</th>
           <th>Date</th>
           <th>Amount</th>
         </tr>
-      </thead>
-      <tbody>
-        {transactions.map((transaction, i) => {
-          return <Transaction key={i} transaction={transaction} />;
+        </thead>
+        <tbody>
+        {this.transactions.map((transaction, i) => {
+          return <Transaction key={i} transaction={transaction}/>;
         })}
-      </tbody>
-    </table>
-  );
+        </tbody>
+      </table>
+    );
+  }
 };

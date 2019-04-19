@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/amarbir22/nightwatch-boilerplate.svg?style=svg&circle-token=6dd9185aec9dede7dae30f1a30b51b4dd5829b94)](https://circleci.com/gh/amarbir22/nightwatch-boilerplate)
 # NightwatchJS Automation Framework
 Author: alubana@teksystems.com | jxu@teksystems.com <br>
 

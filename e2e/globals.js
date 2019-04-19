@@ -54,7 +54,7 @@ module.exports = {
       done();
     }, 200);
   },
-  APP_BASE_URL: (process.env.APP_BASE_URL) || 'localhost:3000',
+  APP_BASE_URL: (process.env.APP_BASE_URL) || 'http://localhost:3000',
   rootAppSelector: '#root',
   loadingAnimationSelector: '.animation',
   pages: PAGES,

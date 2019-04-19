@@ -6,8 +6,10 @@
   "scripts": {
     "install-yarn": "yarn",
     "nightwatch": "nightwatch",
+    "test-headless": "CHROME_HEADLESS=true NO_PROXY_FLAG=true npm run nightwatch",
     "lint": "eslint ./ --max-warnings 0",
-    "prestart-app": "cd ../redux-bank && ./kill-server.sh",
+    "test": "npm-run-all -r -p  start-all test-headless",
+    "kill-app": "cd ../redux-bank && ./kill-server.sh",
     "start-app": "npm start --prefix ../redux-bank",
     "start-mock": "npm start --prefix ../redux-bank/mock-server",
     "start-all": "npm run start-app && npm run start-mock"
@@ -29,6 +31,7 @@
     "nightwatch-axe": "^0.1.5",
     "nightwatch-html-reporter": "^2.0.5",
     "nightwatch-vrt": "^0.2.8",
+    "npm-run-all": "^4.1.5",
     "phantomjs-prebuilt": "^2.1.7",
     "randomstring": "^1.1.5",
     "rgb-hex": "^2.1.0",

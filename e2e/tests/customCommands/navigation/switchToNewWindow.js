@@ -5,12 +5,12 @@
  * @returns {exports}
  */
 exports.command = function (index) {
-    const client = this;
+  const client = this;
 
-    client.windowHandles(function (result) {
-        const handle = result.value[index];
-        client.switchWindow(handle);
-    });
-    client.waitForJavascript();
-    return this;
+  client.windowHandles(function (result) {
+    const handle = result.value[index];
+    client.switchWindow(handle);
+  });
+  client.waitForJavascript();
+  return this;
 };

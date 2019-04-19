@@ -1,13 +1,20 @@
+const _ = require('lodash');
+
 /**
  *
- * @param page
- * @param acceptAlert: pass true when loading page that causes/has alert
+ * @param pageData:
  * @returns {exports}
  */
-exports.command = function (page = this.globals.pages.reactBank.landing, acceptAlert = false) {
-    const _self = this;
-    const url = _self.globals.REACT_BANK_APP + page;
+exports.command = function (pageData = {}) {
+  const _self = this;
+  let {page, acceptAlert, pageLocator} = pageData;
 
-    _self.loadAppPage(url, acceptAlert, '#root');
-    return this;
+  page = _.isEmpty(page) ? '/' : _.trim(page);
+  pageLocator = _.isEmpty(pageLocator) ? '#root' : _.trim(pageLocator);
+  acceptAlert = _.isEmpty(acceptAlert) ? false : _.trim(acceptAlert);
+
+  const url = _self.globals.APP_BASE_URL + page;
+
+  _self.loadAppPage(url, acceptAlert, pageLocator);
+  return this;
 };

@@ -64,6 +64,7 @@ test-results
 ######################
 # e2e Nightwatch
 ######################
-/e2e/tests/reports
+/e2e/reports
 tests_output
 screenshots
+vrt

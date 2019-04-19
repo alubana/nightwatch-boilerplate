@@ -7,12 +7,12 @@
  */
 exports.command = function () {
 //Wait for document to be ready for ~5000ms
-    const client = this;
-    client.pause(1000);
-    for (let i = 5; i >= 1; i -= 1) {
-        const isJsReady = client
+  const client = this;
+  client.pause(1000);
+  for (let i = 5; i >= 1; i -= 1) {
+    const isJsReady = client
             .execute('return document.readyState;', function (result) {
-                return result.value === 'complete';
+              return result.value === 'complete';
             });
 
         // const isJqueryReady = client
@@ -21,13 +21,12 @@ exports.command = function () {
         //     });
 
 
-        if (isJsReady /* && isJqueryReady*/) {
-            client.logger('Document is Ready');
-            break;
-        }
-
-        client.logger(`Document not ready. Waiting for another ${i} seconds`)
-            .pause(1000);
+    if (isJsReady /* && isJqueryReady*/) {
+      break;
     }
-    return this; //for chaining on client/browser object
+
+    client.logger(`Document not ready. Waiting for another ${i} seconds`)
+            .pause(1000);
+  }
+  return this; //for chaining on client/browser object
 };

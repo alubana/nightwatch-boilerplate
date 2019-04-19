@@ -1,30 +1,30 @@
 module.exports = {
-    '@tags': ['UI002', 'bank'],
-    disabled: false,
+  '@tags': ['UI002', 'bank'],
+  disabled: false,
 
-    before: function (client) {
+  before: function (client) {
         //Before Hook must contain all the logic to load the required page and setup pre-conditions
-        client
+    client
             .logger('Testing react-bank landing page UI')
             .loadBankPage();
-    },
+  },
 
-    'TC1: Click on first account': function (client) {
-        const landingPage = client.page.BankLanding();
-        const transactionsPage = client.page.Transactions();
+  'TC1: Click on first account': function (client) {
+    const landingPage = client.page.BankLanding();
+    const transactionsPage = client.page.Transactions();
 
-        landingPage.clickAccountNumberByIndex();
+    landingPage.clickAccountNumberByIndex();
 
-        transactionsPage.expect.element('@title').text.to.be.equal(transactionsPage.props.title);
+    transactionsPage.expect.element('@title').text.to.be.equal(transactionsPage.props.title);
 
-    },
-    'TC2: Click header link': function (client) {
-        const landingPage = client.page.BankLanding();
-        const headerPage = client.page.BankHeader();
+  },
+  'TC2: Click header link': function (client) {
+    const landingPage = client.page.BankLanding();
+    const headerPage = client.page.BankHeader();
 
-        headerPage.scrollFromTop();
+    headerPage.scrollFromTop();
 
-        headerPage.clickReduxBank();
-        landingPage.expect.element('@title').text.to.be.equal(landingPage.props.title);
-    }
+    headerPage.clickReduxBank();
+    landingPage.expect.element('@title').text.to.be.equal(landingPage.props.title);
+  }
 };

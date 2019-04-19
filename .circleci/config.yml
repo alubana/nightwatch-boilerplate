@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: amarbir22/nodejs-chrome-java
+      - image: circleci/node:jessie-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -26,8 +26,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: cd e2e && yarn install
-      - run: cd redux-bank && yarn install
+      - run: cd e2e && npm install
+      - run: cd redux-bank && npm install
 
       - save_cache:
           paths:
@@ -35,4 +35,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: cd e2e && yarn test
+      - run: cd e2e && npm run test

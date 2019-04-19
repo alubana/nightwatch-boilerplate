@@ -7,8 +7,8 @@ module.exports = {
 
   before: (client) => {
     client
-            .logger('Testing redux-bank end to end')
-            .loadBankPage();
+        .logger('Testing redux-bank end to end')
+        .url('http://localhost:3000');
   },
 
   'Step 1: Get the second account\'s balance': (client) => {

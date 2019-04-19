@@ -6,7 +6,7 @@ module.exports = {
         //Before Hook must contain all the logic to load the required page and setup pre-conditions
     client
             .logger('Testing redux-bank landing page UI')
-            .url('http://localhost:3000');
+            .loadBankPage('http://localhost:3000');
   },
 
   'TC1: Verify title and table headers': function (client) {

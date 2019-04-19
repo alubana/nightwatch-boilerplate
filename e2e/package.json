@@ -8,7 +8,7 @@
     "nightwatch": "nightwatch",
     "test-headless": "CHROME_HEADLESS=true NO_PROXY_FLAG=true npm run nightwatch",
     "lint": "eslint ./ --max-warnings 0",
-    "test": "npm-run-all -r -p  start-all test-headless",
+    "test": "npm-run-all -r -p  start-mock start-app test-headless",
     "kill-app": "cd ../redux-bank && ./kill-server.sh",
     "start-app": "npm start --prefix ../redux-bank",
     "start-mock": "npm start --prefix ../redux-bank/mock-server",
